@@ -48,7 +48,6 @@ public class MyBinaryTree {
         inOrder(root.left);
         System.out.print(root.val + ",");
         inOrder(root.right);
-
     }
 
     public void postOrder(TreeNode root) {
@@ -58,5 +57,50 @@ public class MyBinaryTree {
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.val + ",");
+    }
+
+    public int getNode(TreeNode root) {
+//        if (root == null) {
+//            return 0;
+//        }
+//        return 1 + getNode(root.left) + getNode(root.right);
+        return root == null ? 0 : 1 + getNode(root.left) + getNode(root.right);
+    }
+
+    public int getLeafNode(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+        return getLeafNode(root.left) + getLeafNode(root.right);
+    }
+
+    public int getKLevelNode(TreeNode root, int k) {
+        if (root == null || k <= 0) {
+            return 0;
+        }
+        if (k == 1) {
+            return 1;
+        }
+        return getKLevelNode(root.left, k - 1) + getKLevelNode(root.right, k - 1);
+    }
+
+    public int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + Math.max(height(root.left), height(root.right));
+    }
+
+    public boolean getVal(TreeNode root,char val) {
+        if (root == null) {
+            return false;
+        }
+        if (root.val == val) {
+            return true;
+        }
+        return getVal(root.left, val) || getVal(root.right,val);
     }
 }

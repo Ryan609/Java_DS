@@ -9,5 +9,9 @@ public class BinaryTreeTest {
         bt.inOrder(bt.root);
         System.out.println();
         bt.postOrder(bt.root);
+//        System.out.println(bt.getNode(bt.root));
+//        System.out.println(bt.getLeafNode(bt.root));
+//        System.out.println(bt.height(bt.root));
+        System.out.println(bt.getVal(bt.root, 'C'));
     }
 }
