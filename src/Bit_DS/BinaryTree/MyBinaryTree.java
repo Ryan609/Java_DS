@@ -103,4 +103,8 @@ public class MyBinaryTree {
         }
         return getVal(root.left, val) || getVal(root.right,val);
     }
+
+    public void levelOrder(TreeNode root) {
+
+    }
 }
