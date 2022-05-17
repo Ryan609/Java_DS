@@ -1,5 +1,12 @@
 package Bit_DS.BinaryTree;
 
+
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+
+
 class TreeNode {
     char val;
     TreeNode left;
@@ -41,6 +48,45 @@ public class MyBinaryTree {
         preOrder(root.right);
     }
 
+    public List<Character> preOrderNonRe(TreeNode root) {
+        List<Character> ret = new ArrayList<>();
+        if (root == null) {
+            return ret;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.poll();
+            ret.add(cur.val);
+            if (cur.right != null) {
+                stack.push(cur.right);
+            }
+            if (cur.left != null) {
+                stack.push(cur.left);
+            }
+        }
+        return ret;
+    }
+
+    public List<Character> inOrderNonre(TreeNode root) {
+        List<Character> ret = new ArrayList<>();
+        if (root == null) {
+            return ret;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            ret.add(cur.val);
+            cur = cur.right;
+        }
+        return ret;
+    }
+
     public void inOrder(TreeNode root) {
         if (root == null) {
             return;
@@ -59,12 +105,59 @@ public class MyBinaryTree {
         System.out.print(root.val + ",");
     }
 
+    public List<Character> PostOrderNonre(TreeNode root) {
+        List<Character> ret = new ArrayList<>();
+        if (root == null) {
+            return ret;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root;
+        TreeNode prev = null;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            if (cur.right == null || cur.right == prev) {
+                ret.add(cur.val);
+                prev = cur;
+                cur = null;
+            } else {
+                stack.push(cur);
+                cur = cur.right;
+            }
+        }
+        return ret;
+    }
+
     public int getNode(TreeNode root) {
-//        if (root == null) {
-//            return 0;
-//        }
-//        return 1 + getNode(root.left) + getNode(root.right);
         return root == null ? 0 : 1 + getNode(root.left) + getNode(root.right);
+    }
+
+    /**
+     * 统计一棵树有多少个节点 非递归
+     * @param root
+     * @return
+     */
+    public int getNodeNonRecursion(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int size = 0;
+        Deque<TreeNode> dq = new LinkedList<>();
+        dq.offer(root);
+        while (!dq.isEmpty()) {
+            TreeNode node = dq.poll();
+            size++;
+            if (node.left != null) {
+                dq.offer(node.left);
+            }
+            if (node.right != null) {
+                dq.offer(node.right);
+            }
+        }
+        return size;
     }
 
     public int getLeafNode(TreeNode root) {
@@ -104,7 +197,27 @@ public class MyBinaryTree {
         return getVal(root.left, val) || getVal(root.right,val);
     }
 
+    /**
+     * 层序遍历非递归写法
+     * @param root
+     */
     public void levelOrder(TreeNode root) {
-
+        Deque<TreeNode> dq = new LinkedList<>();
+        dq.offer(root);
+        while (!dq.isEmpty()) {
+            int n = dq.size();
+            for (int i = 0; i < n; i++) {
+                TreeNode node = dq.poll();
+                System.out.print(node.val + " ");
+                if (node.left != null) {
+                    dq.offer(node.left);
+                }
+                if (node.right != null) {
+                    dq.offer(node.right);
+                }
+            }
+        }
     }
+
+
 }

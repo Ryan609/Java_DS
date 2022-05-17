@@ -4,14 +4,10 @@ public class BinaryTreeTest {
     public static void main(String[] args) {
         MyBinaryTree bt = new MyBinaryTree();
         bt.build();
-        bt.preOrder(bt.root);
-        System.out.println();
-        bt.inOrder(bt.root);
-        System.out.println();
-        bt.postOrder(bt.root);
-//        System.out.println(bt.getNode(bt.root));
-//        System.out.println(bt.getLeafNode(bt.root));
-//        System.out.println(bt.height(bt.root));
-        System.out.println(bt.getVal(bt.root, 'C'));
+        //bt.levelOrder(bt.root);
+//        System.out.println();
+//        System.out.println(bt.getNodeNonRecursion(bt.root));
+        System.out.println(bt.preOrderNonRe(bt.root));
+        System.out.println(bt.inOrderNonre(bt.root));
     }
 }
