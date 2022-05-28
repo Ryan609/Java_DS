@@ -7,16 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-class TreeNode {
-    char val;
-    TreeNode left;
-    TreeNode right;
-
-    public TreeNode(char val) {
-        this.val = val;
-    }
-}
-
 public class MyBinaryTree {
     TreeNode root;
 
@@ -220,4 +210,17 @@ public class MyBinaryTree {
     }
 
 
+    /**
+     * @author: xinyan
+     * @data: 2022/05/22/15:28
+     **/
+    static class TreeNode {
+        char val;
+        TreeNode left;
+        TreeNode right;
+
+        public TreeNode(char val) {
+            this.val = val;
+        }
+    }
 }
