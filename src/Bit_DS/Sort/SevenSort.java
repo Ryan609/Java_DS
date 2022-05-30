@@ -1,17 +1,19 @@
 package Bit_DS.Sort;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author: xinyan
  * @data: 2022/05/27/09:44
  **/
 public class SevenSort {
-
+    private static ThreadLocalRandom random = ThreadLocalRandom.current();
     public static void main(String[] args) {
-//        int n = 300000;
-//        int[] arr = SortHelper.generaRandomArray(n,0,Integer.MAX_VALUE);
-//        int[] arr1 = SortHelper.arrCopy(arr);
+
+        int n = 300000;
+        int[] arr = SortHelper.generaRandomArray(n,0,Integer.MAX_VALUE);
+        int[] arr1 = SortHelper.arrCopy(arr);
 //        int[] arr2 = SortHelper.arrCopy(arr);
 //        int[] arr3 = SortHelper.arrCopy(arr);
 //        int[] arr4 = SortHelper.arrCopy(arr);
@@ -21,10 +23,10 @@ public class SevenSort {
 ////        SortHelper.testSort(arr3,"insertionSort");
 ////        SortHelper.testSort(arr1,"insertionSortBS");
 //        SortHelper.testSort(arr4,"shellSort");
-        //int[] arr = {8,6,2,3,1,5,7,4};
-        int[] arr = {8,6,2,1};
+        SortHelper.testSort(arr1,"quickSort");
+//        int[] arr = {8,6,2,3,1,5,7,4};
+//        quickSort(arr);
 
-        mergeSort(arr);
     }
 
     /**
@@ -169,7 +171,7 @@ public class SevenSort {
     private static void mergeSortInternal(int[] arr, int left, int right) {
         if (left < right) {
             //find middle index
-            int mid = (right + left) / 2;
+            int mid = left + ((right - left) / 2);
             //Use recursion to find the left side of the array
             mergeSortInternal(arr, left, mid);
             //Use recursion to find the reight side of the array
@@ -213,8 +215,41 @@ public class SevenSort {
                 // aux[i - l] > aux[j - l] 写回aux[j - l]
                 arr[k] = aux[j - left];
                 j ++;
+
             }
         }
     }
 
+
+    /**
+     * 快速排序
+     */
+    public static void quickSort(int[] arr) {
+        quickSortInternal(arr,0, arr.length - 1);
+    }
+
+    private static void quickSortInternal(int[] arr, int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int p = partiton(arr,l,r);
+        quickSortInternal(arr, l, p - 1);
+        quickSortInternal(arr, p+1, r);
+
+    }
+
+    private static int partiton(int[] arr, int l, int r) {
+        int randomIndex = random.nextInt(l,r);
+        swap(arr,l,randomIndex);
+        int v = arr[l];
+        int j = l;
+        for (int i = j+1; i <= r; i++) {
+            if (arr[i] < v) {
+                swap(arr, i,j+1);
+                j++;
+            }
+        }
+        swap(arr,l,j);
+        return  j;
+    }
 }
