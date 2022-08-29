@@ -6,8 +6,7 @@ package codetest;
  **/
 public class test {
     public static void main(String[] args) {
-        String str = ".....";
-        str = str.replaceFirst(".", "#");
-        System.out.println(str);
+        int i = 2;
+        System.out.println(i / 100);
     }
 }
