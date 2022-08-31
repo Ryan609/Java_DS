@@ -1,4 +1,4 @@
-package Bit_DS.Stack;
+package DS.Bit_DS.Stack;
 
 public class StackTest {
     public static void main(String[] args) {

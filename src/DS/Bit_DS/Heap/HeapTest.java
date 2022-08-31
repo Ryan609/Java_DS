@@ -1,4 +1,4 @@
-package Bit_DS.Heap;
+package DS.Bit_DS.Heap;
 
 /**
  * @author: xinyan

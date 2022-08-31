@@ -1,4 +1,4 @@
-package Bit_DS.Queue;
+package DS.Bit_DS.Queue;
 
 public class LinkdedQueueTest {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Bit_DS.BinaryTree;
+package DS.Bit_DS.BinaryTree;
 
 public class BinaryTreeTest {
     public static void main(String[] args) {

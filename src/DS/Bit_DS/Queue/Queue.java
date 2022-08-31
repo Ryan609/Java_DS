@@ -1,4 +1,4 @@
-package Bit_DS.Queue;
+package DS.Bit_DS.Queue;
 
 public interface Queue<E> {
     //入队操作

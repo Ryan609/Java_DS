@@ -1,4 +1,4 @@
-package Bit_DS.BinaryTree;
+package DS.Bit_DS.BinaryTree;
 
 
 import java.util.ArrayList;

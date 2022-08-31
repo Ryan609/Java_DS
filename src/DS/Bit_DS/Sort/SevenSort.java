@@ -1,6 +1,5 @@
-package Bit_DS.Sort;
+package DS.Bit_DS.Sort;
 
-import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

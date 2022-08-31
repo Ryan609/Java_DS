@@ -1,4 +1,4 @@
-package Bit_DS.HashTable;
+package DS.Bit_DS.HashTable;
 
 import java.util.NoSuchElementException;
 

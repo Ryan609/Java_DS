@@ -1,4 +1,4 @@
-package Bit_DS.Stack;
+package DS.Bit_DS.Stack;
 
 import java.util.ArrayList;
 import java.util.List;
