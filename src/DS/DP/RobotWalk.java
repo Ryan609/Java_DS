@@ -38,7 +38,7 @@ public class RobotWalk {
     }
 
     // N个位置, M位置上(start), 必须走K步, 最终能来到P位置
-    public static int ways(int N, int M, int K, int P) {
+    public static int dp(int N, int M, int K, int P) {
         int[][] dp = new int[N+1][K+1];
         dp[P][0] = 1;
         for (int rest = 1; rest <= K; rest++) {
@@ -87,7 +87,7 @@ public class RobotWalk {
 
 
     public static void main(String[] args) {
-        System.out.println(ways(5, 2, 6, 4));
+        System.out.println(dp(5, 2, 6, 4));
         System.out.println(way(5, 2, 6, 4));
         System.out.println(way1(5, 2, 6, 4));
     }

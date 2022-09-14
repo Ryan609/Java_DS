@@ -13,6 +13,36 @@ package DS.DP;
 public class CardsInLine {
 
     public static int way(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
+        int p1 = f(arr, 0, arr.length - 1);
+        int p2 = g(arr, 0, arr.length - 1);
+        return Math.max(p1,p2);
+    }
+    // 先手函数
+    public static int f(int[] arr, int L, int R) {
+        // 说明没有牌了, 直接拿走
+        if (L == R) {
+            return arr[L];
+        }
+        // 说明还有牌, 从左拿和从右拿选最大.
+        int p1 = arr[L] + g(arr, L + 1, R);  // 选择拿左边的, 那么下次就是后手从L+1开始
+        int p2 = arr[R] + g(arr, L, R - 1); // 选择拿右边的, 那么下次就是后手从R-1开始
+        return Math.max(p1,p2);
+    }
+    // 后手函数
+    public static int g(int[] arr, int L, int R) {
+        if (L == R) {
+            return 0;
+        }
+        int p1 = f(arr, L + 1, R);
+        int p2 = f(arr, L,R - 1);
+        return Math.min(p1,p2);
+    }
+
+    // dp改进
+    public static int dp(int[] arr) {
         int N = arr.length;
         int[][] fmap = new int[N][N];
         int[][] gmap = new int[N][N];
@@ -34,6 +64,7 @@ public class CardsInLine {
 
     public static void main(String[] args) {
         int[] arr = {5,7,4,5,8,1,6,0,3,4,6,1,7};
+        System.out.println(dp(arr));
         System.out.println(way(arr));
     }
 }
