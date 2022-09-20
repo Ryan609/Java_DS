@@ -28,4 +28,6 @@ public class 合并两个有序链表 {
         pre.next = cur1 != null ? cur1 : cur2;
         return head;
     }
+
+
 }
