@@ -181,7 +181,6 @@ public class SevenSort {
     }
 
     private static void merge(int[] arr, int left, int mid, int right) {
-
         // 先创建一个新的数组aux,将子数组的值复制给新数组
         int[] aux = new int[right - left + 1];
         // l = 2,r = 4
@@ -224,6 +223,7 @@ public class SevenSort {
      * 快速排序
      */
     public static void quickSort(int[] arr) {
+
         quickSortInternal(arr,0, arr.length - 1);
     }
 

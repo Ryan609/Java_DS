@@ -26,6 +26,7 @@ public class 插入排序 {
 
     public static void main(String[] args) {
         int[] arr = {1,3,1,11,2,4,55,22};
+
         insertSort(arr);
         System.out.println(Arrays.toString(arr));
     }
