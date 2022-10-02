@@ -14,14 +14,8 @@ public class test {
 //
 //        }
 
-        String str1 = "yesyes";
-        String str2 = "yse";
-
-        if (isSub(str1, str2)) {
-            System.out.println("yes");
-        } else {
-            System.out.println("no");
-        }
+        int a = (int)(Math.random() * (10 - 9 + 1));
+        System.out.println(a);
     }
 
     public static boolean isSub(String s1, String s2) {
