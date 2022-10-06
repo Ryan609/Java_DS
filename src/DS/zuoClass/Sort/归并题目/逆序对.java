@@ -23,12 +23,7 @@ public class 逆序对 {
         }
         // l < r
         int mid = l + ((r - l) >> 1);
-        return
-                process(arr, l, mid)
-                        +
-                        process(arr, mid + 1, r)
-                        +
-                        merge(arr, l, mid, r);
+        return process(arr, l, mid) + process(arr, mid + 1, r) + merge(arr, l, mid, r);
     }
 
     public static int merge(int[] arr, int L, int m, int r) {
