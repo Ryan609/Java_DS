@@ -6,16 +6,11 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        while (n > 0) {
-//            String str1 = sc.nextLine();
-//            String str2 = sc.nextLine();
-//
-//        }
-
-        int a = (int)(Math.random() * (10 - 9 + 1));
-        System.out.println(a);
+        List<Integer> ans = new LinkedList<>();
+        ans.add(0, 2);
+        ans.add(1, 3);
+        ans.add(2, 4);
+        System.out.println(ans);
     }
 
     public static boolean isSub(String s1, String s2) {
