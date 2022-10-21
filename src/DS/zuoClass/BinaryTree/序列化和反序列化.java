@@ -36,5 +36,11 @@ public class 序列化和反序列化 {
         }
     }
 
+    // 后续遍历 序列化和反序列化
+    public static Queue<String> postSerial(Node head) {
+        Queue<String> ans = new LinkedList<>();
+        pres(head, ans);
+        return ans;
+    }
 
 }
