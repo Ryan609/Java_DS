@@ -1,12 +1,14 @@
-package DS.zuoClass.LinkedList;
+package DS.zuoClass.BinaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
  * @author: xinyan
  * @data: 2022/10/18/15:36
  **/
-public class 非递归先中后遍历 {
+public class 非递归先中后层遍历 {
 
     public static class Node {
         public int value;
@@ -72,6 +74,24 @@ public class 非递归先中后遍历 {
             }
         }
         System.out.println();
+    }
+
+    public static void level(Node head) {
+        if (head == null) {
+            return;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(head);
+        while (!queue.isEmpty()) {
+            Node cur = queue.poll();
+            System.out.println(cur.value);
+            if (cur.left != null) {
+                queue.add(cur.left);
+            }
+            if (cur.right != null) {
+                queue.add(cur.right);
+            }
+        }
     }
 
 }
