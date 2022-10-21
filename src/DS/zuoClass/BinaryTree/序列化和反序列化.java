@@ -42,5 +42,14 @@ public class 序列化和反序列化 {
         pres(head, ans);
         return ans;
     }
+    public static void pres1(Node head, Queue<String> ans) {
+        if (head == null) {
+            ans.add(null);
+        } else {
+            ans.add(String.valueOf(head.value));
+            pres(head.left, ans);
+            pres(head.right, ans);
+        }
+    }
 
 }
