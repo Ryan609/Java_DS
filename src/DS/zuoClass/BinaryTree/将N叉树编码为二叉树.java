@@ -20,9 +20,7 @@ public class 将N叉树编码为二叉树 {
 			val = _val;
 			children = _children;
 		}
-	}
-
-	;
+	};
 
 	// 提交时不要提交这个类
 	public static class TreeNode {
